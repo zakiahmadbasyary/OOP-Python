@@ -1,0 +1,82 @@
+class Mahasiswa:
+    def __init__(self, name, npm, prodi):
+        self.name = name
+        self.npm = npm
+        self.prodi = prodi
+        self.daftarKRS=[]
+
+    def mengambil(self, Matakuliah):
+        self.daftarKRS.append(Matakuliah.name)
+
+    def infoMahasiswa(self):
+        print("------INFORMASI MAHASISWA------")
+        print("Nama : ", self.name)
+        print("NPM : ", self.npm)
+        print("Prodi : ", self.prodi)
+        print("Mata Kuliah")
+        for Matakuliah in self.daftarKRS:
+            print(Matakuliah)
+
+class Dosen:
+    
+    def __init__(self, name, nip):
+        self.name = name
+        self.nip = nip
+        self.daftarMatkulDiampu=[]
+
+    def mengampu(self, matkul):
+        self.daftarMatkulDiampu.append(matkul.name)
+    
+    def infoDosen(self):
+        print("------INFORMASI DOSEN------")
+        print("Nama : ", self.name)
+        print("NIP : ", self.nip)
+        print("Mata Kuliah")
+        for matkul in self.daftarMatkulDiampu:
+            print(matkul)
+
+
+
+class MataKuliah:
+    def __init__(self, name, sks):
+        self.name = name
+        self.sks=sks
+        self.daftarMatakuliah=[]
+
+    def diambil(self, mahasiswa):
+        self.daftarMatakuliah.append(mahasiswa.name)
+    
+    def infoMataKuliah(self):
+        print("------INFORMASI MATAKULIAH------")
+        print("Nama Matakuliah : ", self.name)
+        print("SKS Matakuliah : ", self.sks)
+        print("Daftar mahasiswa yang mengambil: ")
+        for mahasiswa in self.daftarMatakuliah:
+            print(mahasiswa)
+
+mhs1 = Mahasiswa('Zaki', '2215061004', 'Teknik Informatika')
+mhs2 = Mahasiswa('Leo', '2215061020', 'Teknik Informatika')
+
+dosen1 = Dosen("Pak Puput ", "2324353543")
+dosen1 = Dosen("Bu Trisya ", "39473974974")
+
+mk1 = MataKuliah ('PBO', 4)
+mk2 = MataKuliah ('Kalkulus', 2)
+
+mhs1.mengambil(mk1)
+mhs1.mengambil(mk2)
+mhs2.mengambil (mk1)
+mhs2.mengambil (mk2)
+
+mk1.diambil(mhs1)
+mk1.diambil(mhs2)
+mk2.diambil(mhs1)
+mk2.diambil(mhs2)
+
+dosen1.mengampu(mk1)
+dosen1.mengampu(mk2)
+
+mhs1.infoMahasiswa()
+dosen1.infoDosen()
+mk1.infoMataKuliah()
+

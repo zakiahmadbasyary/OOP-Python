@@ -1,0 +1,12 @@
+class Mobil:
+    def __init__(self, merek, tahun):
+        self._merek = merek
+        self._tahun = tahun
+        
+    def _info(self):
+        print(f"Mobil: {self._merek} ({self._tahun})")
+        
+mobil1 = Mobil("Toyota", 2020)
+mobil1._info()  # output: Mobil: Toyota (2020)
+
+print(mobil1._merek)  # output: Toyota
